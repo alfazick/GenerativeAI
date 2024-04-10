@@ -1,0 +1,49 @@
+In addition to Z-score standardization, there are several 
+other techniques for data normalization (or scaling) that you might encounter 
+or use depending on the specifics of your dataset and the requirements of 
+the machine learning algorithms you plan to apply. Here are a few common ones:
+
+1. Min-Max Scaling
+Min-max scaling transforms the data into a fixed range, usually 0 to 1, or 
+it can be any other range such as -1 to 1. 
+The formula for calculating the min-max of an observation is:
+X_norm = (X - X_min) / (X_max - X_min)
+
+This method is useful when you want to normalize your data 
+but not necessarily assume it follows a normal distribution.
+
+2. Robust Scaling
+Robust scaling is similar to Z-score standardization but 
+uses the median and the interquartile range instead of mean and standard deviation. 
+This makes it more robust to outliers. The formula is:
+
+X_robust = (X - Median) / IQR
+where IQR is the interquartile range (75th percentile - 25th percentile).
+
+3. Max Abs Scaling
+Max Abs Scaling scales each feature by its maximum absolute value so that 
+the new absolute max value of each feature is 1. This is useful for data that 
+is already centered at zero or sparse data.
+
+X_scaled = X / max(|X|)
+
+
+4. Log Scaling
+Logarithmic scaling transforms each feature using the natural logarithm or a base-10 logarithm. 
+This approach is particularly useful for dealing with data that follows an exponential 
+distribution or when you want to reduce the impact of exponential growth trends or 
+large variances in the data.
+
+X_log = log(X + 1)
+
+
+
+5. L2 Normalization
+L2 normalization scales the data such that the sum of squares of all values (the L2 norm) 
+in a feature vector equals 1. It's often used in text classification or clustering 
+where high-dimensional data is common.
+X_L2 = X / sqrt(sum X^2)
+
+
+Each of these techniques has its advantages and is best suited for different types of data 
+and analytical scenarios. Choosing the right method depends on the nature of your data and the specific requirements of the models you're working with.
